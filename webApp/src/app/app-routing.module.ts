@@ -8,6 +8,7 @@ import { FirebaseComponent } from './webApp/formation/firestore-firebase/composa
 import { FormulairesComponent } from './webApp/formation/formulaires/composants/formulaires/formulaires.component';
 import { CompStore1Component } from './webApp/formation/ngrx-store/composants/comp-store1/comp-store1.component';
 import { TuComponent } from './webApp/formation/test-unitaires/composants/tu/tu.component';
+import { ClientLandingPageComponent } from './webApp/formation/compte-client/composants/client-landing-page/client-landing-page.component';
 
 const routes: Routes = [
   { path: '', component: BodyComponent },
@@ -18,9 +19,10 @@ const routes: Routes = [
   { path: 'reactives-forms', component: FormulairesComponent},
   { path: 'ngrx', component: CompStore1Component},
   { path: 'tests-unitaires', component: TuComponent},
+  { path: 'lazy-loading', component: ClientLandingPageComponent},
 
-  
-  // path non trouvé 
+
+  // path non trouvé
    { path: '**', component: Page404Component }
 ];
 
