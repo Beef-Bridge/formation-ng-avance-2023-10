@@ -1,0 +1,59 @@
+<div class="container">
+    <h1><i class="bi bi-film"></i> Liste des Films</h1>
+    <br>
+    <!-- commandes -->
+    <div class="row" style="background-color:#f3a2df; padding:25px;">
+        <div class="col-md-12" *ngFor="let commande of commandesFilms">
+            - Numéro de commande : {{commande}}
+
+            <button class="btn btn-danger"> <i class="bi bi-archive-fill"
+                    (click)="supprCommande(commande)"></i></button>
+        </div>
+
+    </div>
+
+    <!-- Panier -->
+    <div class="row">
+        <div class="alert alert-success">
+            <p><i class="bi bi-basket2-fill"></i> Panier <i class="bi bi-basket"></i></p>
+
+            <ul class="list-group"
+                *ngFor="let item of panier; let index=index;let isLast = last;  let isFirst=first; let isOdd=odd; let isEven = even">
+
+                <span *ngIf="isEven; then even; else odd"></span>
+
+                <ng-template #even>
+                    <li class="list-group-item list-group-item-dark"><i class="bi bi-basket2"></i> {{index}} :
+                        {{item.title}} </li>
+                </ng-template>
+
+                <ng-template #odd>
+                    <li class="list-group-item text-info"><i class="bi bi-basket2"></i> {{index}} : {{item.title }}
+                    </li>
+                </ng-template>
+
+            </ul>
+            <button class="btn btn-success" (click)="validerPanier()">Valider la commande</button>
+        </div>
+    </div>
+
+    <div class="row alert alert-primary">
+        <div class="col-md-3" *ngFor="let objfilm of films">
+            <div class="card">
+                <img class="card-img-top" src="{{objfilm.avatar}}" alt="">
+                <div class="card-body">
+
+                    <div class="alert alert-warning">
+                        <p> <i class="bi bi-airplane"></i> Composant Enfant</p>
+
+                        <!-- COMPOSANT ENFANT -->
+                        <app-films-details [childFilm]="objfilm" (outputEvent)="filmSelected($event)">
+                        </app-films-details>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

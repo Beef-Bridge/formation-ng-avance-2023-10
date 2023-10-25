@@ -1,0 +1,32 @@
+<h5>La class formControl</h5>
+
+    <mat-icon>perm_identity</mat-icon>
+
+    <mat-form-field>
+        <mat-label>Votre prénom :</mat-label>
+        <input type="text" matInput>
+        <!-- <input type="text" matInput [formControl]="prenom"> -->
+    </mat-form-field>
+
+<!-- tout ce qui suit peut être utilisé autant dans les "templates driven forms" que dans les "reactive forms" -->
+
+<!-- <div>
+    <p>- Touched  : {{prenom.touched}}</p>
+    <p>- Pristine  : {{prenom.pristine}}</p>
+    <p>- Dirty  : {{prenom.dirty}}</p>
+    <p>- Valid  : {{prenom.valid}}</p>
+</div>
+
+
+<p [hidden]="!prenom.touched && !prenom.valid" style="color:lightgreen">
+    Le champ prénom est validé !
+</p>
+
+<p [hidden]="prenom.touched || prenom.valid" style="color:red">
+    Le champ prénom est requis !
+</p>
+
+<div *ngIf="prenom.touched && prenom.valid; then blockOk else blockNotOk"></div>
+
+    <ng-template #blockOk>☼ Le champ est validé !</ng-template>
+    <ng-template #blockNotOk>☼ Le champ est requis !</ng-template> -->

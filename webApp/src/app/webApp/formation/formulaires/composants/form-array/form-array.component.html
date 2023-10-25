@@ -1,0 +1,41 @@
+<h3>Form Array - Form Builder</h3>
+
+<form [formGroup]="cursus">
+    <p>
+        <mat-form-field>
+            <mat-label>Donner un nom au cursus de formation :</mat-label>
+            <input matInput type="text" formControlName="nomCursus">
+        </mat-form-field>
+    </p>
+    <p>Ajouter une formation </p>
+    <p>
+        <mat-icon>double_arrow</mat-icon>&nbsp;
+        <button mat-mini-fab type="button" (click)="addFormation()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </p>
+
+    <div formArrayName="formationsArray">
+        <div *ngFor="let formation of getFormations.controls; let i=index">
+            N° : {{i}}
+            <div [formGroupName]="i">
+
+                <mat-form-field>
+                    <mat-label>Formation</mat-label>
+                    <input matInput type=" text" formControlName="formation">
+                </mat-form-field>&nbsp;
+
+                <mat-form-field>
+                    <mat-label>Niveau</mat-label>
+                    <mat-select formControlName="niveau">
+                        <mat-option value="niveau1">Niveau 1</mat-option>
+                        <mat-option value="niveau2">Perfectionnement</mat-option>
+                        <mat-option value="niveau3">Expert</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-icon (click)="delFormation(i)">delete</mat-icon>
+            </div>
+        </div>
+    </div>
+</form>
