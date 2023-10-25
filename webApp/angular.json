@@ -7,7 +7,8 @@
       "i18n": {
         "sourceLocale": "fr",
         "locales": {
-          "en-US": "src/locale/messages.en.json"
+          "en-US": "src/locale/messages.en.json",
+          "es": "src/locale/messages.es.json"
         }
       },
       "projectType": "application",
@@ -23,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/",
+            "outputPath": "build/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -49,6 +50,9 @@
           "configurations": {
             "en": {
               "localize": ["en-US"]
+            },
+            "es": {
+              "localize": ["es"]
             },
             "production": {
               "budgets": [
@@ -83,13 +87,13 @@
               "browserTarget": "webApp:build:production"
             },
             "development": {
-                "browserTarget": "webApp:build:development"
+              "browserTarget": "webApp:build:development"
             },
             "page_en": {
-                "browserTarget": "webApp:build:en"
+              "browserTarget": "webApp:build:en"
             },
             "page_es": {
-                "browserTarget": "webApp:build:es"
+              "browserTarget": "webApp:build:es"
             }
           },
           "defaultConfiguration": "development"
