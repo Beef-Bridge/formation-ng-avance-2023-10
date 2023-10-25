@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 // import { rootReducer } from './webApp/formation/ngrx-store/reducers/root-reducers';
 // import { metaReducersX } from './webApp/formation/ngrx-store/reducers/meta-reducers';
@@ -29,7 +30,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     EffectsModule.forRoot([
       // appEffects
     ]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
