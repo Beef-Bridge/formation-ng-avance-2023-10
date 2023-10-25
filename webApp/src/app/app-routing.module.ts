@@ -25,10 +25,15 @@ const routes: Routes = [
   // { path: 'lazy-loading', component: ClientLandingPageComponent, },
 
   // import routing en mode layz-loading
-  { path: 'lazy-loading', component: ClientLandingPageComponent, loadChildren:
-  () => import('./webApp/formation/compte-client/compte-client.module').then(
-    (m) => m.CompteClientModule
-  ) },
+  {
+    path: 'lazy-loading', component: ClientLandingPageComponent, loadChildren:
+    () => import('./webApp/formation/compte-client/compte-client.module').then(
+      (m) => m.CompteClientModule
+    ),
+    data: {
+      preload: true
+    }
+  },
 
   // path non trouvé
    { path: '**', component: Page404Component }
