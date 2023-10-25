@@ -13,7 +13,7 @@ import { FirebaseModule } from '../../formation/firestore-firebase/firebase.modu
 import { FormulairesModule } from '../../formation/formulaires/formulaires.module';
 import { NgrxModule } from '../../formation/ngrx-store/ngrx.module';
 import { TuModule } from '../../formation/test-unitaires/tu.module';
-import { CompteClientModule } from '../../formation/compte-client/compte-client.module';
+// import { CompteClientModule } from '../../formation/compte-client/compte-client.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { CompteClientModule } from '../../formation/compte-client/compte-client.
   imports: [
     CommonModule, RouterModule, NgrxModule,
     FilmsModule,FirebaseModule, TpExosModule, FormulairesModule, TuModule,
-    CompteClientModule
+    // CompteClientModule
   ],
   exports: [
     LandingPageComponent, HeaderComponent, BodyComponent, FooterComponent

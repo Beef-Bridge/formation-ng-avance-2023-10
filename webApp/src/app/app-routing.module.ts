@@ -9,6 +9,7 @@ import { FormulairesComponent } from './webApp/formation/formulaires/composants/
 import { CompStore1Component } from './webApp/formation/ngrx-store/composants/comp-store1/comp-store1.component';
 import { TuComponent } from './webApp/formation/test-unitaires/composants/tu/tu.component';
 import { ClientLandingPageComponent } from './webApp/formation/compte-client/composants/client-landing-page/client-landing-page.component';
+// import { ClientLandingPageComponent } from './webApp/formation/compte-client/composants/client-landing-page/client-landing-page.component';
 
 const routes: Routes = [
   { path: '', component: BodyComponent },
@@ -19,8 +20,15 @@ const routes: Routes = [
   { path: 'reactives-forms', component: FormulairesComponent},
   { path: 'ngrx', component: CompStore1Component},
   { path: 'tests-unitaires', component: TuComponent},
-  { path: 'lazy-loading', component: ClientLandingPageComponent},
 
+  // facon classique
+  // { path: 'lazy-loading', component: ClientLandingPageComponent, },
+
+  // import routing en mode layz-loading
+  { path: 'lazy-loading', component: ClientLandingPageComponent, loadChildren:
+  () => import('./webApp/formation/compte-client/compte-client.module').then(
+    (m) => m.CompteClientModule
+  ) },
 
   // path non trouvé
    { path: '**', component: Page404Component }
