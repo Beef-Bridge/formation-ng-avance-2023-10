@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "webApp": {
+      "i18n": {
+        "sourceLocale": "fr",
+        "locales": {
+          "en-US": "src/locale/messages.en.json"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,6 +47,9 @@
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
+            "en": {
+              "localize": ["en-US"]
+            },
             "production": {
               "budgets": [
                 {
@@ -74,7 +83,13 @@
               "browserTarget": "webApp:build:production"
             },
             "development": {
-              "browserTarget": "webApp:build:development"
+                "browserTarget": "webApp:build:development"
+            },
+            "page_en": {
+                "browserTarget": "webApp:build:en"
+            },
+            "page_es": {
+                "browserTarget": "webApp:build:es"
             }
           },
           "defaultConfiguration": "development"

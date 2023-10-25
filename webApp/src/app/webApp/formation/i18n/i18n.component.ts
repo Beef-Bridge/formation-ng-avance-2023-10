@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class I18nComponent {
 
+  public title:string=$localize `:@@titre:Traduction Angular !`;
+
 }

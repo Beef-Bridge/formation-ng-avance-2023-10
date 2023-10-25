@@ -1,9 +1,10 @@
 <div class="alert alert-primary">
 
     <h1>L'InternationalisatioN I18N</h1>
+    <h2>{{ title }}</h2>
 
     <div>
-     
+
         <p><i class="bi bi-arrow-right-circle"></i> Commande : ng add @angular/localize</p>
         <p>1- Marquer les éléments à traduire avec la directive i18n</p>
         <p>2-Créer le fichier de traduction messages.json (voir messages.xlf[xml])
@@ -16,13 +17,13 @@
 
     <div>
         <!-- contenu à traduire -->
-        <p>Bonjour Angular !</p>
-        <p>Angular est le meilleur Framework !</p>
+        <p i18n>Bonjour Angular !</p>
+        <p i18n="@@slogan">Angular est le meilleur Framework !</p>
         <p>
-            <img src="assets/images/drapeaux/fr/drapeau_fr.jpg" title="Mon Drapeau">
+            <img i18n i18n-src i18n-title src="assets/images/drapeaux/fr/drapeau_fr.jpg" title="Mon Drapeau">
         </p>
         <p>
-            <a href="https://www.angular.io" target="_blank">Consulter la Doc Angular IO</a>
+            <a i18n i18n-href href="https://www.angular.io" target="_blank">Consulter la Doc Angular IO</a>
         </p>
     </div>
 
