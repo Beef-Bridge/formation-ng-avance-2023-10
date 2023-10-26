@@ -9,6 +9,8 @@ import { FormulairesComponent } from './webApp/formation/formulaires/composants/
 import { CompStore1Component } from './webApp/formation/ngrx-store/composants/comp-store1/comp-store1.component';
 import { TuComponent } from './webApp/formation/test-unitaires/composants/tu/tu.component';
 import { ClientLandingPageComponent } from './webApp/formation/compte-client/composants/client-landing-page/client-landing-page.component';
+import { RxjsComponent } from './webApp/formation/rxjs/composants/rxjs/rxjs.component';
+
 // import { ClientLandingPageComponent } from './webApp/formation/compte-client/composants/client-landing-page/client-landing-page.component';
 
 const routes: Routes = [
@@ -48,6 +50,13 @@ const routes: Routes = [
   //     preload: true,
   //   },
   // },
+
+  {
+    path: 'rxjs',
+    component: RxjsComponent,
+    loadChildren:
+      async () => ( (await import('./webApp/formation/rxjs/rxjs.module')).RxjsModule)
+  },
 
   // path non trouvé
   { path: '**', component: Page404Component },
