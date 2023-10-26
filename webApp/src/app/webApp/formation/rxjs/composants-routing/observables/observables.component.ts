@@ -4,7 +4,7 @@ import { Observable, Subscription, from } from 'rxjs';
 @Component({
   selector: 'app-observables',
   templateUrl: './observables.component.html',
-  styleUrls: ['./observables.component.scss']
+  styleUrls: ['./observables.component.scss'],
 })
 export class ObservablesComponent {
   // ----------------------------------------------------
@@ -25,28 +25,37 @@ export class ObservablesComponent {
   public createObservable1: any = () => {
     this.eltUl1.nativeElement.innerHTML = '';
 
-    const formationsArray: string[] = ['NG16', 'REACT 17', 'PWA', 'XML', 'JSON', 'PWA', 'TS'];
+    const formationsArray: string[] = [
+      'NG16',
+      'REACT 17',
+      'PWA',
+      'XML',
+      'JSON',
+      'PWA',
+      'TS',
+    ];
 
     // création de l'observable
-    const formation$:Observable<string> = from(formationsArray);
+    const formation$: Observable<string> = from(formationsArray);
 
     console.log(formation$);
 
     formation$
-      .pipe(
-        // permet d'enchainer les opérateurs
-      )
+      .pipe
+      // permet d'enchainer les opérateurs
+      ()
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
-        next:
-        (formation:string) => {
+        next: (formation: string) => {
           console.log(formation);
+
+          const eltLi = <HTMLElement>document.createElement('li');
+          eltLi.innerHTML = formation;
+          eltLi.className = 'list-group-item';
+          this.eltUl1.nativeElement.appendChild(eltLi);
         },
-        error:
-        (e:any) => console.log(e)
-        ,
-        complete:
-        () => console.warn('Complete')
-      })
-  }
+        error: (e: any) => console.log(e),
+        complete: () => console.warn('Complete'),
+      });
+  };
 }
