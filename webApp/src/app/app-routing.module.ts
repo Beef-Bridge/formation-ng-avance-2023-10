@@ -16,32 +16,32 @@ const routes: Routes = [
   { path: 'accueil', component: BodyComponent },
   { path: 'liste-des-films', component: ListeDesFilmsComponent },
   { path: 'liste-des-tps-et-des-exos', component: TpComponent },
-  { path: 'firebase', component: FirebaseComponent},
-  { path: 'reactives-forms', component: FormulairesComponent},
-  { path: 'ngrx', component: CompStore1Component},
-  { path: 'tests-unitaires', component: TuComponent},
+  { path: 'firebase', component: FirebaseComponent },
+  { path: 'reactives-forms', component: FormulairesComponent },
+  { path: 'ngrx', component: CompStore1Component },
+  { path: 'tests-unitaires', component: TuComponent },
 
   // facon classique
   // { path: 'lazy-loading', component: ClientLandingPageComponent, },
 
-  // import routing en mode layz-loading
+  // import routing en mode layz-loading (Promesses ES2015)
   {
-    path: 'lazy-loading', component: ClientLandingPageComponent, loadChildren:
-    () => import('./webApp/formation/compte-client/compte-client.module').then(
-      (m) => m.CompteClientModule
-    ),
-    data: {
-      preload: true
-    }
+    path: 'lazy-loading',
+    component: ClientLandingPageComponent,
+    loadChildren: () =>
+      import('./webApp/formation/compte-client/compte-client.module').then(
+        (m) => {
+          return m.CompteClientModule;
+        }
+      ),
   },
 
   // path non trouvé
-   { path: '**', component: Page404Component }
+  { path: '**', component: Page404Component },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
