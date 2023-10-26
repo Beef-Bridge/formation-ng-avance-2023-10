@@ -149,13 +149,19 @@ export class ObservablesComponent implements OnDestroy, AfterViewInit {
 
     fromEvent(this.eltPrenom.nativeElement, 'input')
     .pipe(
-      debounceTime(1000)
+      debounceTime(1000),
+      tap(
+        (val:any) => {
+          console.log(val); // output : InputEvent
+          console.log(val.target.value);
+        }
+      )
     )
     .subscribe(
-      (val:any) => {
-        console.log(val); // output : InputEvent
-        console.log(val.target.value);
-      }
+      // (val:any) => {
+      //   console.log(val); // output : InputEvent
+      //   console.log(val.target.value);
+      // }
     )
   }
 
