@@ -1,6 +1,8 @@
 .DS_Store
 .DS_STORE
 
+.angulardoc.json
+
 /dist/
 /bazel-out
 /integration/bazel/bazel-*
