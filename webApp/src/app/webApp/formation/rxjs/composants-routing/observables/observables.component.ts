@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, delay, filter, first, from, tap } from 'rxjs';
+import { Observable, Subscription, catchError, delay, filter, first, from, tap } from 'rxjs';
 import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
@@ -50,31 +50,26 @@ export class ObservablesComponent {
         // permet d'enchainer les opérateurs
         first(),
         tap((formation: string) => {
-          //console.log(formation);
-
-          const eltLi = <HTMLElement>document.createElement('li');
-          eltLi.innerHTML = formation;
-          eltLi.className = 'list-group-item';
-          this.eltUl1.nativeElement.appendChild(eltLi);
+          console.log(formation);
         })
       )
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
-        // next:
-        // (formation: string) => {
-        //   console.log(formation);
-        //   const eltLi = <HTMLElement>document.createElement('li');
-        //   eltLi.innerHTML = formation;
-        //   eltLi.className = 'list-group-item';
-        //   this.eltUl1.nativeElement.appendChild(eltLi);
-        // }
-        // ,
-        // error:
-        // (e: any) => console.log(e)
-        // ,
-        // complete:
-        // () => console.warn('Complete')
-        // ,
+        next:
+        (formation: string) => {
+          // console.log(formation);
+          const eltLi = <HTMLElement>document.createElement('li');
+          eltLi.innerHTML = formation;
+          eltLi.className = 'list-group-item';
+          this.eltUl1.nativeElement.appendChild(eltLi);
+        }
+        ,
+        error:
+        (e: any) => console.log(e)
+        ,
+        complete:
+        () => console.warn('Complete')
+        ,
       });
   };
 
@@ -104,12 +99,14 @@ export class ObservablesComponent {
         //     return formation.duree === 2;
         //   }
         // ),
+        delay(3000), // pour simuler un temps de réponse inattendu
         filter(
           (formation: Formation) => {
             return formation.duree === 2;
           }
         ),
         tap(
+          // observerNEXT dans le TAP
           (formation: Formation) => {
             console.warn('Apres le filter : ', formation);
 
@@ -118,6 +115,10 @@ export class ObservablesComponent {
             eltLi.className = 'list-group-item';
             this.eltUl2.nativeElement.appendChild(eltLi);
           }
+        ),
+        catchError(
+          // capture les erreurs de l'observable
+          (e: any): any => console.log(e)
         )
       )
       .subscribe();
