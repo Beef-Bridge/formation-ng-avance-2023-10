@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, from } from 'rxjs';
+import { Observable, Subscription, first, from } from 'rxjs';
 
 @Component({
   selector: 'app-observables',
@@ -41,9 +41,16 @@ export class ObservablesComponent {
     console.log(formation$);
 
     formation$
-      .pipe
-      // permet d'enchainer les opérateurs
-      ()
+      .pipe(
+        // permet d'enchainer les opérateurs
+
+        // first(),
+        // last(),
+        // first(
+        //   // predicate ou pattern le 1er qui correspond à un critere
+        //   (formation:string) => { formation... }
+        // )
+      )
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
         next: (formation: string) => {
