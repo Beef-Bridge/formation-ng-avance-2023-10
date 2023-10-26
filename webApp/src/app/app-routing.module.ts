@@ -38,13 +38,16 @@ const routes: Routes = [
 
   // import routing en mode lazy-loading (async / await => asynchrone)
   {
+    path: 'compte-client',
     component: ClientLandingPageComponent,
-    loadChildren:
-    async () => (await import('./webApp/formation/compte-client/compte-client.module')).CompteClientModule,
+    loadChildren: async () =>
+      (await import('./webApp/formation/compte-client/compte-client.module'))
+        .CompteClientModule,
     // syntaxic sugar
-      data :{
-        preload:true
-  }
+    data: {
+      preload: true,
+    },
+  },
 
   // path non trouvé
   { path: '**', component: Page404Component },
