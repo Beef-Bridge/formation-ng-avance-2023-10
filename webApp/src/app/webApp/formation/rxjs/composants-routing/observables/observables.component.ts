@@ -49,21 +49,34 @@ export class ObservablesComponent {
         // permet d'enchainer les opérateurs
         first(),
         tap(
-          (valObs) => console.log('val apres le first ', valObs)
+          (formation: string) => {
+            //console.log(formation);
+
+            const eltLi = <HTMLElement>document.createElement('li');
+            eltLi.innerHTML = formation;
+            eltLi.className = 'list-group-item';
+            this.eltUl1.nativeElement.appendChild(eltLi);
+          }
         )
       )
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
-        next: (formation: string) => {
-          console.log(formation);
+        // next:
+        // (formation: string) => {
+        //   console.log(formation);
 
-          const eltLi = <HTMLElement>document.createElement('li');
-          eltLi.innerHTML = formation;
-          eltLi.className = 'list-group-item';
-          this.eltUl1.nativeElement.appendChild(eltLi);
-        },
-        error: (e: any) => console.log(e),
-        complete: () => console.warn('Complete'),
+        //   const eltLi = <HTMLElement>document.createElement('li');
+        //   eltLi.innerHTML = formation;
+        //   eltLi.className = 'list-group-item';
+        //   this.eltUl1.nativeElement.appendChild(eltLi);
+        // }
+        // ,
+        // error:
+        // (e: any) => console.log(e)
+        // ,
+        // complete:
+        // () => console.warn('Complete')
+        // ,
       });
   };
 
