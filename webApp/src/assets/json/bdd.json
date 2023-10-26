@@ -1,169 +1,169 @@
 {
-    "dives": [
-        {
-            "id": 1,
-            "name": "Trou Aux Biches - L'Epave du Stella Maru",
-            "location": "Ile Maurice - Trou aux Biches - Nord/Ouest",
-            "level": 2,
-            "description": "Plongée de niveau 2 FFESSM ou PADI au arge de la barrière de Corail, départ à 8h30. Profondeur -30 mètres. Rascasses Volantes, murènes ...",
-            "latitude": -20.0363,
-            "longitude": 57.544700000000034,
-            "evaluation": [
-                7,
-                9,
-                8
-            ],
-            "photo": "https://dev.webjs.fr/images/fond1.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Réserve COUSTEAU - KARUKERA",
-            "location": "DOM GUADELOUPE - Basse Terre",
-            "level": 1,
-            "description": "Plongée de niveau 1 FFESSM ou PADI dans la baie de Bouillante, départ à 10h.Profondeur -10 à -25 mètres.",
-            "latitude": 16.1549167,
-            "longitude": -61.7877314,
-            "evaluation": [
-                10,
-                9,
-                10
-            ],
-            "photo": "https://dev.webjs.fr/images/fond2.jpg"
-        },
-        {
-            "id": 3,
-            "name": "Site de Saint Jean",
-            "location": "Saint Jean Cap Ferrat - 06",
-            "level": 2,
-            "description": "Plongée de niveau 2 FFESSM ou PADI dans la baie de Saint Jean Cap Ferrat, 45 minutes environ, départ à 8h30. Profondeur -10 à -30 mètres.",
-            "latitude": 43.68953,
-            "longitude": 7.33298400000001,
-            "evaluation": [
-                7,
-                9,
-                8
-            ],
-            "photo": "https://dev.webjs.fr/images/fond3.jpg"
-        },
-        {
-            "id": 4,
-            "name": "Site Agay",
-            "location": "Agay - 83",
-            "level": 3,
-            "description": "Plongée de niveau 3 FFESSM ou PADI dans la baie de Agay dans le Var, 60 minutes environ, départ à 10h.Profondeur -10 à -25 mètres.",
-            "latitude": 43.43501200000001,
-            "longitude": 6.86294399999997,
-            "evaluation": [
-                10,
-                9,
-                10
-            ],
-            "photo": "https://dev.webjs.fr/images/fond4.jpg"
-        },
-        {
-            "id": 5,
-            "name": "Ile de Cozumel",
-            "location": "Cozumel - Mexique - Départ de Playa del VCarmen",
-            "level": 2,
-            "description": "Plongée de niveau 2 FFESSM ou PADI sur l'île de Cozumel, 45 minutes environ, départ à 8h30. Profondeur -10 à -30 mètres.",
-            "latitude": 20.4317585,
-            "longitude": -86.9202746,
-            "evaluation": [
-                7,
-                9,
-                8
-            ],
-            "photo": "https://dev.webjs.fr/images/fond5.jpg"
-        }
-    ],
-    "messages": [
-        {
-            "nameNom": "Bruce Wayne",
-            "nameEmail": "bruce@gothamcity.com",
-            "nameMessage": "Alfred je reviens ...",
-            "id": 1
-        },
-        {
-            "nameNom": "Ahsoka",
-            "nameEmail": "a.tano@hyperspace.com",
-            "nameMessage": "Sabine tu as été ma padawan",
-            "id": 1
-        }
-    ],
-    "films1": [
-        {
-            "id": 1,
-            "title": "Episode I : La Menace Fantôme",
-            "year": "1999",
-            "desc": "La République Galactique est en pleine ébullition. La taxation des routes commerciales reliant les systèmes éloignés provoque la discorde.Pour régler la question, la cupide Fédération du Commerce et ses redoutables vaisseaux de guerre imposent un blocus à la petite planète Naboo.Face à ce dangereux engrenage, alors que le Congrès de la République s’enlise dans des débats sans fin, le Chancelier Suprême charge en secret deux Chevaliers Jedi, gardiens de la paix et de la justice dans la galaxie, de résoudre le conflit ...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=20754.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar1.jpg"
-        },
-        {
-            "id": 2,
-            "title": "Episode II : L'Attaque des Clones",
-            "year": "2002",
-            "desc": "L'agitation règne au Sénat Galactique. Des milliers de systèmes solaires ont annoncé leur intention de quitter la République. Confrontés à ce mouvement séparatiste mené par le Comte Dooku, les Chevaliers Jedi, en nombre limité, ont du mal à maintenir la paix et l'ordre dans la galaxie. La sénatrice Amidala, ancienne reine de Naboo, revient au Sénat Galactique participer à un vote crucial sur la création d'une Armée de la République pour aider les Jedi débordés... ",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=29014.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar2.jpg"
-        },
-        {
-            "id": 3,
-            "title": "Episode III : La Revanche des Sith ",
-            "year": "2005",
-            "desc": "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout. Avec une audace stupéfiante, le Général Grievous, diabolique chef droïde, est entré dans la capitale pour enlever le Chancelier Palpatine, Chef Suprême du Sénat Galactique. Alors que l'Armée Séparatiste Droïde tente de quitter la capitale assiégée avec son précieux otage, deux Chevaliers Jedi mènent une mission désespérée pour secourir le Chancelier captif...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=40623.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar3.jpg"
-        },
-        {
-            "id": 4,
-            "title": "Episode IV : Un nouvel Espoir",
-            "year": "1977",
-            "desc": "C'est une époque de guerre civile. A bord de vaisseaux spatiaux opérant à partir d'une base cachée, les Rebelles ont emporté leur première victoire sur le maléfique Empire Galactique. Au cours de la bataille, des espions rebelles ont réussi à dérober les plans secrets de l'arme absolue de l'Empire : l'Etoile de la Mort, une station spatiale blindée dotée d'un équipement assez puissant pour annihiler une planète tout entière. Poursuivie par des sbires sinistres de l'Empire, la princesse Leia file vers sa base dans son vaisseau cosmique, porteuse des plans volés à l'ennemi qui pourront sauver son peuple et restaurer la liberté dans la galaxie...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25801.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar8.jpg"
-        },
-        {
-            "id": 5,
-            "title": "Episode V :  L'Empire contre-attaque",
-            "year": "1980",
-            "desc": "Le temps du péril a commencé pour la rébellion. Malgré la destruction de l'Etoile Noire, l'armée impériale a chassé les rebelles de leur base cachée et les poursuit à travers la galaxie. Après avoir échappé à la redoutable escadrille cosmique de l'Empire, un groupe de résistants mené par Luke Skywalker a établi une nouvelle base secrète sur Hoth, la lointaine planète des glaces. Dark Vador, le maléfique, hanté par l'idée de retrouver le jeune Luke, lance des milliers de sondes téléguidées aux confins de l'espace...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25802.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar5.jpg"
-        },
-        {
-            "id": 6,
-            "title": "Episode VI : Le Retour du Jedi",
-            "year": "1983",
-            "desc": "Luke Skywalker est retourné parmi les siens sur la planète Tatooine pour tenter d'arracher son ami Han Solo aux griffes de l'ignoble Jabba le Hutt. Luke ne peut pas savoir que l'Empire Galactique a commencé à construire en secret une nouvelle station spatiale blindée bien plus puissante et terrifiante que la première Etoile de la Mort. Quand cette arme absolue sera achevée, ce sera la fin du petit groupe de résistants qui luttent pour ramener la liberté dans la galaxie...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25803.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar7.jpg"
-        },
-        {
-            "id": 7,
-            "title": "Episode VII : Le réveil de la Force",
-            "year": "2015",
-            "desc": "Trente ans après la victoire de l'Alliance Rebelle, Le Premier Ordre né sur les ruines de l'Empire, menacela paix. Luke Skywalker a disparu et une nouvelle menace s'est élevée : Le Premier Ordre, dirigé par le mystérieux Suprême Leader Snoke et son exécuteur du Côté Obscur, Kylo Ren. La Résistance, la force militaire du général Leia Organa, et des héros invraisemblables réunis par le destin sont le seul espoir de la galaxie de contrecarrer un nouveau règne du mal doivent à tout prix retrouver Luke Skywalker...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=215097.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar6.jpg"
-        },
-        {
-            "id": 8,
-            "title": "Episode VIII : Les derniers Jedi",
-            "year": "2017",
-            "desc": "Le Premier Ordre règne désormais sur la galaxie. Partout, les troupes du Suprême Leader Snoke se déploient. Seule une pooignée de résistants, menés par la générale Léia Organa, s'opposent à la tyrannie naissante. Tous ont la conviction que le Maître Jedi Luke Skywalj=ker reviendra pour les aider à faire renaître l'espoir ...",
-            "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=215099.html",
-            "avatar": "http://dev.webjs.fr/avatars/avatar4.jpg"
-        }
-    ],
-    "films2": [
-        {
-            "id": 9,
-            "title": "Episode IX : L'Ascension de Skywalker",
-            "year": "2019",
-            "desc": "Kylo Ren, désormais à la tête du Premier Ordre, affronte des adorateurs de Vador avec ses troupes sur la planète Mustafar où se situe le château de son grand-père Dark Vador. Il récupère dans les ruines de leur campement une relique Sith, un Orienteurnote 1, qui lui permet de se rendre sur Exegol, la lointaine planète des Sith. Il y retrouve l'Empereur Palpatine affaibli,censé avoir été tué depuis plusieurs décennies après sa chute dans l'un des puits d'énergie de la seconde Étoile de la Mortnote 2. Palpatine révèle avoir créé Snoke, l'ancien suprême leader du Premier Ordre et également préparé en secret la plus grande flotte de vaisseaux de toute la galaxie : 10 000 destroyers, capables chacun de détruire une planète.",
-            "url": "https://fr.wikipedia.org/wiki/Star_Wars,_%C3%A9pisode_IX_:_L%27Ascension_de_Skywalker",
-            "avatar": "http://dev.webjs.fr/avatars/avatar10.jpg"
-        }
-    ]
+  "formations": [
+    {
+      "id": 1,
+      "cours": "Angular - les fondamentaux",
+      "codeCours": "AGU",
+      "duration": 4
+    },
+    {
+      "id": 2,
+      "cours": "Angular - concepts avancés",
+      "codeCours": "ANY",
+      "duration": 3
+    },
+    {
+      "id": 3,
+      "cours": "Javascript",
+      "codeCours": "DHL",
+      "duration": 4
+    }
+  ],
+  "dives": [
+    {
+      "id": 1,
+      "name": "Trou Aux Biches - L'Epave du Stella Maru",
+      "location": "Ile Maurice - Trou aux Biches - Nord/Ouest",
+      "level": 2,
+      "description": "Plongée de niveau 2 FFESSM ou PADI au arge de la barrière de Corail, départ à 8h30. Profondeur -30 mètres. Rascasses Volantes, murènes ...",
+      "latitude": -20.0363,
+      "longitude": 57.544700000000034,
+      "evaluation": [7, 9, 8],
+      "photo": "https://dev.webjs.fr/images/fond1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Réserve COUSTEAU - KARUKERA",
+      "location": "DOM GUADELOUPE - Basse Terre",
+      "level": 1,
+      "description": "Plongée de niveau 1 FFESSM ou PADI dans la baie de Bouillante, départ à 10h.Profondeur -10 à -25 mètres.",
+      "latitude": 16.1549167,
+      "longitude": -61.7877314,
+      "evaluation": [10, 9, 10],
+      "photo": "https://dev.webjs.fr/images/fond2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Site de Saint Jean",
+      "location": "Saint Jean Cap Ferrat - 06",
+      "level": 2,
+      "description": "Plongée de niveau 2 FFESSM ou PADI dans la baie de Saint Jean Cap Ferrat, 45 minutes environ, départ à 8h30. Profondeur -10 à -30 mètres.",
+      "latitude": 43.68953,
+      "longitude": 7.33298400000001,
+      "evaluation": [7, 9, 8],
+      "photo": "https://dev.webjs.fr/images/fond3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Site Agay",
+      "location": "Agay - 83",
+      "level": 3,
+      "description": "Plongée de niveau 3 FFESSM ou PADI dans la baie de Agay dans le Var, 60 minutes environ, départ à 10h.Profondeur -10 à -25 mètres.",
+      "latitude": 43.43501200000001,
+      "longitude": 6.86294399999997,
+      "evaluation": [10, 9, 10],
+      "photo": "https://dev.webjs.fr/images/fond4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Ile de Cozumel",
+      "location": "Cozumel - Mexique - Départ de Playa del VCarmen",
+      "level": 2,
+      "description": "Plongée de niveau 2 FFESSM ou PADI sur l'île de Cozumel, 45 minutes environ, départ à 8h30. Profondeur -10 à -30 mètres.",
+      "latitude": 20.4317585,
+      "longitude": -86.9202746,
+      "evaluation": [7, 9, 8],
+      "photo": "https://dev.webjs.fr/images/fond5.jpg"
+    }
+  ],
+  "messages": [
+    {
+      "nameNom": "Bruce Wayne",
+      "nameEmail": "bruce@gothamcity.com",
+      "nameMessage": "Alfred je reviens ...",
+      "id": 1
+    },
+    {
+      "nameNom": "Ahsoka",
+      "nameEmail": "a.tano@hyperspace.com",
+      "nameMessage": "Sabine tu as été ma padawan",
+      "id": 1
+    }
+  ],
+  "films1": [
+    {
+      "id": 1,
+      "title": "Episode I : La Menace Fantôme",
+      "year": "1999",
+      "desc": "La République Galactique est en pleine ébullition. La taxation des routes commerciales reliant les systèmes éloignés provoque la discorde.Pour régler la question, la cupide Fédération du Commerce et ses redoutables vaisseaux de guerre imposent un blocus à la petite planète Naboo.Face à ce dangereux engrenage, alors que le Congrès de la République s’enlise dans des débats sans fin, le Chancelier Suprême charge en secret deux Chevaliers Jedi, gardiens de la paix et de la justice dans la galaxie, de résoudre le conflit ...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=20754.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Episode II : L'Attaque des Clones",
+      "year": "2002",
+      "desc": "L'agitation règne au Sénat Galactique. Des milliers de systèmes solaires ont annoncé leur intention de quitter la République. Confrontés à ce mouvement séparatiste mené par le Comte Dooku, les Chevaliers Jedi, en nombre limité, ont du mal à maintenir la paix et l'ordre dans la galaxie. La sénatrice Amidala, ancienne reine de Naboo, revient au Sénat Galactique participer à un vote crucial sur la création d'une Armée de la République pour aider les Jedi débordés... ",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=29014.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Episode III : La Revanche des Sith ",
+      "year": "2005",
+      "desc": "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout. Avec une audace stupéfiante, le Général Grievous, diabolique chef droïde, est entré dans la capitale pour enlever le Chancelier Palpatine, Chef Suprême du Sénat Galactique. Alors que l'Armée Séparatiste Droïde tente de quitter la capitale assiégée avec son précieux otage, deux Chevaliers Jedi mènent une mission désespérée pour secourir le Chancelier captif...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=40623.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Episode IV : Un nouvel Espoir",
+      "year": "1977",
+      "desc": "C'est une époque de guerre civile. A bord de vaisseaux spatiaux opérant à partir d'une base cachée, les Rebelles ont emporté leur première victoire sur le maléfique Empire Galactique. Au cours de la bataille, des espions rebelles ont réussi à dérober les plans secrets de l'arme absolue de l'Empire : l'Etoile de la Mort, une station spatiale blindée dotée d'un équipement assez puissant pour annihiler une planète tout entière. Poursuivie par des sbires sinistres de l'Empire, la princesse Leia file vers sa base dans son vaisseau cosmique, porteuse des plans volés à l'ennemi qui pourront sauver son peuple et restaurer la liberté dans la galaxie...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25801.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar8.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Episode V :  L'Empire contre-attaque",
+      "year": "1980",
+      "desc": "Le temps du péril a commencé pour la rébellion. Malgré la destruction de l'Etoile Noire, l'armée impériale a chassé les rebelles de leur base cachée et les poursuit à travers la galaxie. Après avoir échappé à la redoutable escadrille cosmique de l'Empire, un groupe de résistants mené par Luke Skywalker a établi une nouvelle base secrète sur Hoth, la lointaine planète des glaces. Dark Vador, le maléfique, hanté par l'idée de retrouver le jeune Luke, lance des milliers de sondes téléguidées aux confins de l'espace...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25802.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar5.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Episode VI : Le Retour du Jedi",
+      "year": "1983",
+      "desc": "Luke Skywalker est retourné parmi les siens sur la planète Tatooine pour tenter d'arracher son ami Han Solo aux griffes de l'ignoble Jabba le Hutt. Luke ne peut pas savoir que l'Empire Galactique a commencé à construire en secret une nouvelle station spatiale blindée bien plus puissante et terrifiante que la première Etoile de la Mort. Quand cette arme absolue sera achevée, ce sera la fin du petit groupe de résistants qui luttent pour ramener la liberté dans la galaxie...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=25803.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar7.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Episode VII : Le réveil de la Force",
+      "year": "2015",
+      "desc": "Trente ans après la victoire de l'Alliance Rebelle, Le Premier Ordre né sur les ruines de l'Empire, menacela paix. Luke Skywalker a disparu et une nouvelle menace s'est élevée : Le Premier Ordre, dirigé par le mystérieux Suprême Leader Snoke et son exécuteur du Côté Obscur, Kylo Ren. La Résistance, la force militaire du général Leia Organa, et des héros invraisemblables réunis par le destin sont le seul espoir de la galaxie de contrecarrer un nouveau règne du mal doivent à tout prix retrouver Luke Skywalker...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=215097.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar6.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Episode VIII : Les derniers Jedi",
+      "year": "2017",
+      "desc": "Le Premier Ordre règne désormais sur la galaxie. Partout, les troupes du Suprême Leader Snoke se déploient. Seule une pooignée de résistants, menés par la générale Léia Organa, s'opposent à la tyrannie naissante. Tous ont la conviction que le Maître Jedi Luke Skywalj=ker reviendra pour les aider à faire renaître l'espoir ...",
+      "url": "http://www.allocine.fr/film/fichefilm_gen_cfilm=215099.html",
+      "avatar": "http://dev.webjs.fr/avatars/avatar4.jpg"
+    }
+  ],
+  "films2": [
+    {
+      "id": 9,
+      "title": "Episode IX : L'Ascension de Skywalker",
+      "year": "2019",
+      "desc": "Kylo Ren, désormais à la tête du Premier Ordre, affronte des adorateurs de Vador avec ses troupes sur la planète Mustafar où se situe le château de son grand-père Dark Vador. Il récupère dans les ruines de leur campement une relique Sith, un Orienteurnote 1, qui lui permet de se rendre sur Exegol, la lointaine planète des Sith. Il y retrouve l'Empereur Palpatine affaibli,censé avoir été tué depuis plusieurs décennies après sa chute dans l'un des puits d'énergie de la seconde Étoile de la Mortnote 2. Palpatine révèle avoir créé Snoke, l'ancien suprême leader du Premier Ordre et également préparé en secret la plus grande flotte de vaisseaux de toute la galaxie : 10 000 destroyers, capables chacun de détruire une planète.",
+      "url": "https://fr.wikipedia.org/wiki/Star_Wars,_%C3%A9pisode_IX_:_L%27Ascension_de_Skywalker",
+      "avatar": "http://dev.webjs.fr/avatars/avatar10.jpg"
+    }
+  ]
 }
