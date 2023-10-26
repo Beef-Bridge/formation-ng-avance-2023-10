@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { Observable, Subscription, catchError, debounce, debounceTime, delay, filter, first, from, fromEvent, interval, startWith, take, tap } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Observable, Subscription, catchError, debounce, debounceTime, delay, filter, first, from, fromEvent, interval, of, startWith, take, tap } from 'rxjs';
 import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
@@ -7,7 +7,7 @@ import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
   templateUrl: './observables.component.html',
   styleUrls: ['./observables.component.scss'],
 })
-export class ObservablesComponent implements OnDestroy, AfterViewInit {
+export class ObservablesComponent implements OnInit, OnDestroy, AfterViewInit {
   // ----------------------------------------------------
   public title: string = '';
   public temps: number = 0;
@@ -23,6 +23,7 @@ export class ObservablesComponent implements OnDestroy, AfterViewInit {
 
   private subscriptionTime: Subscription = new Subscription();
   public infos$: Observable<string> = {} as Observable<string>;
+  public propInfos: string = '';
 
   // ----------------------------------------------------
   public createObservable1: any = () => {
@@ -141,6 +142,28 @@ export class ObservablesComponent implements OnDestroy, AfterViewInit {
   // }
 
   // cycle de vie
+  ngOnInit() {
+    this.infos$ = of('Hello NG', 'Hello React')
+    .pipe(
+      tap(
+        val => console.log(val)
+      )
+    ); // le subscribe n'est pas fait ici, mais dans la view avec 'async' !
+
+    // le même travail qu'avec l'observable info$
+    // mais plus couteux en verbe, et moins direct pour le désabonnement.
+    of('Hello NG', 'Hello React')
+        .pipe(
+          tap(
+            val => {
+              console.log(val);
+              this.propInfos = val;
+            }
+          )
+        )
+        .subscribe();
+  }
+
   ngAfterViewInit() {
     fromEvent(this.eltStop.nativeElement, 'click')
     .subscribe(
