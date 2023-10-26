@@ -17,7 +17,9 @@ export class ObservablesComponent {
   @ViewChild('texte') eltPrenom!: ElementRef<HTMLElement>;
   @ViewChild('stop') eltStop!: ElementRef<HTMLElement>;
 
+  // permet de gérer notre souscription à l'abonement de l'observable
   private subscription: Subscription = new Subscription();
+  
   private subscriptionTime: Subscription = new Subscription();
   public infos$: Observable<string> = {} as Observable<string>;
 
@@ -40,7 +42,9 @@ export class ObservablesComponent {
 
     console.log(formation$);
 
-    formation$
+    // abonnement à l'observable
+    // avec affection de l'abonnement et gérer sa souscription
+    this.subscription = formation$
       .pipe(
         // permet d'enchainer les opérateurs
 
@@ -65,4 +69,12 @@ export class ObservablesComponent {
         complete: () => console.warn('Complete'),
       });
   };
+
+  // cycle de vie
+  ngOnDestroy () {
+    // window.alert('COMP DESTROY');
+
+    // désabonnement à notre observable
+    this.subscription.unsubscribe;
+  }
 }
