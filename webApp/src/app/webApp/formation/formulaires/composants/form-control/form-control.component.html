@@ -1,32 +1,62 @@
-<h5>La class formControl</h5>
+<h3>Form Control</h3>
 
-    <mat-icon>perm_identity</mat-icon>
+<form>
+  <mat-icon id="icone">face</mat-icon>&nbsp;
+  <mat-form-field>
+    <mat-label>Votre prénom :</mat-label>
+    <input type="text" matInput name="name_prenom" [formControl]="prenom" />
+  </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Votre prénom :</mat-label>
-        <input type="text" matInput>
-        <!-- <input type="text" matInput [formControl]="prenom"> -->
-    </mat-form-field>
+  <p></p>
 
-<!-- tout ce qui suit peut être utilisé autant dans les "templates driven forms" que dans les "reactive forms" -->
+  <mat-label>Votre choix</mat-label>
+  <mat-icon>question_mark</mat-icon>&nbsp;
+  <mat-checkbox name="name_choix1" [formControl]="choix1">
+    Choix #1</mat-checkbox>
+  <mat-checkbox name="name_choix2" [formControl]="choix2">
+    Choix #2</mat-checkbox>
 
-<!-- <div>
-    <p>- Touched  : {{prenom.touched}}</p>
-    <p>- Pristine  : {{prenom.pristine}}</p>
-    <p>- Dirty  : {{prenom.dirty}}</p>
-    <p>- Valid  : {{prenom.valid}}</p>
-</div>
+  <p></p>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Choisir une date</mat-label>
+    <input matInput [matDatepicker]="cal" />
+    <mat-datepicker-toggle matIconSuffix [for]="cal"></mat-datepicker-toggle>
+    <mat-datepicker #cal></mat-datepicker>
+  </mat-form-field>
 
-<p [hidden]="!prenom.touched && !prenom.valid" style="color:lightgreen">
+  <p></p>
+
+  <p>- Touched : {{ prenom.touched }}</p>
+  <p>- Pristine : {{ prenom.pristine }}</p>
+  <p>- Dirty : {{ prenom.dirty }}</p>
+  <p>- Valid : {{ prenom.valid }}</p>
+
+  <p [hidden]="!prenom.touched && !prenom.valid" style="color: lightgreen">
     Le champ prénom est validé !
-</p>
-
-<p [hidden]="prenom.touched || prenom.valid" style="color:red">
+  </p>
+  <p [hidden]="prenom.touched || prenom.valid" style="color: red">
     Le champ prénom est requis !
-</p>
+  </p>
 
-<div *ngIf="prenom.touched && prenom.valid; then blockOk else blockNotOk"></div>
+  <div
+    *ngIf="prenom.touched && prenom.valid; then blockOk; else blockNotOk"></div>
+  <ng-template #blockOk>☼ Le champ est validé !</ng-template>
+  <ng-template #blockNotOk>☼ Le champ est requis !</ng-template>
 
-    <ng-template #blockOk>☼ Le champ est validé !</ng-template>
-    <ng-template #blockNotOk>☼ Le champ est requis !</ng-template> -->
+  <p></p>
+
+  <mat-icon>settings</mat-icon>&nbsp;
+  <mat-form-field>
+    <mat-label>Votre message :</mat-label>
+    <textarea matInput name="name_message" [formControl]="message"></textarea>
+  </mat-form-field>
+
+  <p></p>
+
+  <button mat-raised-button color="primary" type="submit">
+    <mat-icon>login</mat-icon>&nbsp; submit ...
+  </button>
+
+  <p></p>
+</form>
