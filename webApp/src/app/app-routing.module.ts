@@ -24,17 +24,27 @@ const routes: Routes = [
   // facon classique
   // { path: 'lazy-loading', component: ClientLandingPageComponent, },
 
-  // import routing en mode layz-loading (Promesses ES2015)
+  // import routing en mode lazy-loading (Promesses ES2015)
+  // {
+  //   path: 'lazy-loading',
+  //   component: ClientLandingPageComponent,
+  //   loadChildren: () =>
+  //     import('./webApp/formation/compte-client/compte-client.module').then(
+  //       (m) => {
+  //         return m.CompteClientModule;
+  //       }
+  //     ),
+  // },
+
+  // import routing en mode lazy-loading (async / await => asynchrone)
   {
-    path: 'lazy-loading',
     component: ClientLandingPageComponent,
-    loadChildren: () =>
-      import('./webApp/formation/compte-client/compte-client.module').then(
-        (m) => {
-          return m.CompteClientModule;
-        }
-      ),
-  },
+    loadChildren:
+    async () => (await import('./webApp/formation/compte-client/compte-client.module')).CompteClientModule,
+    // syntaxic sugar
+      data :{
+        preload:true
+  }
 
   // path non trouvé
   { path: '**', component: Page404Component },
