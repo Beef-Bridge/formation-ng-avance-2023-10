@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, catchError, delay, filter, first, from, interval, startWith, take, tap } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { Observable, Subscription, catchError, delay, filter, first, from, fromEvent, interval, startWith, take, tap } from 'rxjs';
 import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
@@ -7,7 +7,7 @@ import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
   templateUrl: './observables.component.html',
   styleUrls: ['./observables.component.scss'],
 })
-export class ObservablesComponent {
+export class ObservablesComponent implements OnDestroy, AfterViewInit {
   // ----------------------------------------------------
   public title: string = '';
   public temps: number = 0;
@@ -127,7 +127,7 @@ export class ObservablesComponent {
   public play: any = () => {
     const compteur$:Observable<number> = interval(1000) // va emettre une valeur numerique toutes les 1000 millisecondes
     .pipe(
-      startWith(1), // réinitialise le compteur à 1
+      startWith(0), // réinitialise la val de l'observable à 0
       take(10)
     );
 
@@ -136,11 +136,18 @@ export class ObservablesComponent {
     );
   }
 
-  public stop: any = () => {
-    this.subscriptionTime.unsubscribe();
-  }
+  // public stop: any = () => {
+  //   this.subscriptionTime.unsubscribe();
+  // }
 
   // cycle de vie
+  ngAfterViewInit() {
+    fromEvent(this.eltStop.nativeElement, 'click')
+    .subscribe(
+      () => this.subscriptionTime.unsubscribe()
+    )
+  }
+
   ngOnDestroy() {
     // window.alert('COMP DESTROY');
 
