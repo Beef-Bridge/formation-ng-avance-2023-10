@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { Observable, Subscription, catchError, delay, filter, first, from, fromEvent, interval, startWith, take, tap } from 'rxjs';
+import { Observable, Subscription, catchError, debounce, debounceTime, delay, filter, first, from, fromEvent, interval, startWith, take, tap } from 'rxjs';
 import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
@@ -145,6 +145,17 @@ export class ObservablesComponent implements OnDestroy, AfterViewInit {
     fromEvent(this.eltStop.nativeElement, 'click')
     .subscribe(
       () => this.subscriptionTime.unsubscribe()
+    );
+
+    fromEvent(this.eltPrenom.nativeElement, 'input')
+    .pipe(
+      debounceTime(1000)
+    )
+    .subscribe(
+      (val:any) => {
+        console.log(val); // output : InputEvent
+        console.log(val.target.value);
+      }
     )
   }
 
