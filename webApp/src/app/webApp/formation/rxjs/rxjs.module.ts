@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RxjsRoutingModule,
     HttpClientModule,
-    RouterModule
+    // RouterModule // Plus utile car il est déjà importé dans le accueil.module.ts !
   ]
 })
 export class RxjsModule { }
