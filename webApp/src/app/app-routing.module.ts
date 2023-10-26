@@ -51,6 +51,7 @@ const routes: Routes = [
   //   },
   // },
 
+  // Lazy-loading Async / Await Asynchrone - ES2017 (plus optimiser que les promesse ES2015)
   {
     path: 'rxjs',
     component: RxjsComponent,
