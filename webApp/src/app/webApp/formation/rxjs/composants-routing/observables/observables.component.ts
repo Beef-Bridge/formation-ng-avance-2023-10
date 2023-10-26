@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, first, from, tap } from 'rxjs';
+import { Observable, Subscription, delay, filter, first, from, tap } from 'rxjs';
+import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
   selector: 'app-observables',
@@ -48,23 +49,20 @@ export class ObservablesComponent {
       .pipe(
         // permet d'enchainer les opérateurs
         first(),
-        tap(
-          (formation: string) => {
-            //console.log(formation);
+        tap((formation: string) => {
+          //console.log(formation);
 
-            const eltLi = <HTMLElement>document.createElement('li');
-            eltLi.innerHTML = formation;
-            eltLi.className = 'list-group-item';
-            this.eltUl1.nativeElement.appendChild(eltLi);
-          }
-        )
+          const eltLi = <HTMLElement>document.createElement('li');
+          eltLi.innerHTML = formation;
+          eltLi.className = 'list-group-item';
+          this.eltUl1.nativeElement.appendChild(eltLi);
+        })
       )
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
         // next:
         // (formation: string) => {
         //   console.log(formation);
-
         //   const eltLi = <HTMLElement>document.createElement('li');
         //   eltLi.innerHTML = formation;
         //   eltLi.className = 'list-group-item';
@@ -80,8 +78,53 @@ export class ObservablesComponent {
       });
   };
 
+  public createObservable2: any = () => {
+    // tableau à 2 entrées
+    const formationsArray2: Formation[] = [
+      { cours: 'NG 16', duree: 4 },
+      { cours: 'REACT 17', duree: 3 },
+      { cours: 'VUE', duree: 2 },
+      { cours: 'VUE', duree: 4 },
+      { cours: 'ECMA SCRIPT', duree: 2 },
+      { cours: 'TYPESCRIPT', duree: 2 },
+    ];
+
+    // création de l'observable sans le nommer
+    from(formationsArray2)
+      .pipe(
+        // permet d'enchainer les opérateurs RXJS
+        tap(
+          // observer NEXT
+          (formation: Formation) => console.log('Avant le filter : ', formation)
+        ),
+        // first(
+        //   // predicat === pattern
+        //   (formation: Formation) => {
+        //     // ce first va arreter le listing des formations à la première formation qui aura une durée de 2 jours
+        //     return formation.duree === 2;
+        //   }
+        // ),
+        filter(
+          (formation: Formation) => {
+            return formation.duree === 2;
+          }
+        ),
+        tap(
+          (formation: Formation) => {
+            console.warn('Apres le filter : ', formation);
+
+            const eltLi = <HTMLElement>document.createElement('li');
+            eltLi.innerHTML = `${formation.cours} : ${formation.duree} jours.`;
+            eltLi.className = 'list-group-item';
+            this.eltUl2.nativeElement.appendChild(eltLi);
+          }
+        )
+      )
+      .subscribe();
+  };
+
   // cycle de vie
-  ngOnDestroy () {
+  ngOnDestroy() {
     // window.alert('COMP DESTROY');
 
     // désabonnement à notre observable
