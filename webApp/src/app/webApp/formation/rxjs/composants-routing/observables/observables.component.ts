@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, first, from } from 'rxjs';
+import { Observable, Subscription, first, from, tap } from 'rxjs';
 
 @Component({
   selector: 'app-observables',
@@ -19,7 +19,7 @@ export class ObservablesComponent {
 
   // permet de gérer notre souscription à l'abonement de l'observable
   private subscription: Subscription = new Subscription();
-  
+
   private subscriptionTime: Subscription = new Subscription();
   public infos$: Observable<string> = {} as Observable<string>;
 
@@ -47,13 +47,10 @@ export class ObservablesComponent {
     this.subscription = formation$
       .pipe(
         // permet d'enchainer les opérateurs
-
-        // first(),
-        // last(),
-        // first(
-        //   // predicate ou pattern le 1er qui correspond à un critere
-        //   (formation:string) => { formation... }
-        // )
+        first(),
+        tap(
+          (valObs) => console.log('val apres le first ', valObs)
+        )
       )
       .subscribe({
         // la notion d'observers NEXT ERROR COMPLETE
