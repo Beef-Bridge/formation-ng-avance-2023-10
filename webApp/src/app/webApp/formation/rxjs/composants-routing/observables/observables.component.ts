@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Observable, Subscription, catchError, delay, filter, first, from, tap } from 'rxjs';
+import { Observable, Subscription, catchError, delay, filter, first, from, interval, startWith, take, tap } from 'rxjs';
 import { Formation } from 'src/app/sharedModels/models/interfaces/formation';
 
 @Component({
@@ -71,7 +71,7 @@ export class ObservablesComponent {
         () => console.warn('Complete')
         ,
       });
-  };
+  }
 
   public createObservable2: any = () => {
     // tableau à 2 entrées
@@ -122,7 +122,23 @@ export class ObservablesComponent {
         )
       )
       .subscribe();
-  };
+  }
+
+  public play: any = () => {
+    const compteur$:Observable<number> = interval(1000) // va emettre une valeur numerique toutes les 1000 millisecondes
+    .pipe(
+      startWith(1), // réinitialise le compteur à 1
+      take(10)
+    );
+
+    this.subscriptionTime = compteur$.subscribe(
+      (val:number) => this.temps = val
+    );
+  }
+
+  public stop: any = () => {
+    this.subscriptionTime.unsubscribe();
+  }
 
   // cycle de vie
   ngOnDestroy() {
