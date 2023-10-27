@@ -9,10 +9,23 @@ import { changenameAction, initAction } from '../../actions/actions';
 })
 export class CompStore1Component {
 
+  public actor:any;
+  public isJedi:any;
+
   constructor(private _store:Store) {}
 
   ngOnInit() {
-    this._store.dispatch(initAction())
+    this._store.dispatch(initAction());
+
+    this._store.select(
+      (state:any) => {
+        return state.root.actor
+      }
+    ).subscribe(
+      (partStateActor) => {
+        this.actor = partStateActor
+      }
+    )
   }
 
   public changeName = () => {
