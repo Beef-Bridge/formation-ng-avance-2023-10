@@ -11,13 +11,12 @@ export class NgrxEffectsService {
 
   // méthodes
   public getFilms$ = (): Observable<Films[]> => {
-      const URL_API: string = 'api/films';
+      const URL_API: string = 'http://localhost:3001/films1';
       // const URL_API: string = 'api/fiflms';
       // pour générer l'erreur
       return this._http.get<Films[]>(URL_API).pipe(
-          delay(3000),
+          // delay(3000),
           // délai dans le temps pour simuler un accès réseau plus lent
         );
-         
   }
 }

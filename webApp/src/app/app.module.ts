@@ -11,7 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { rootReducer } from './webApp/formation/ngrx-store/reducers/root-reducers';
 import { metaReducersX } from './webApp/formation/ngrx-store/reducers/meta-reducers';
-// import { appEffects } from './webApp/formation/ngrx-store/effects/effects';
+import { appEffects } from './webApp/formation/ngrx-store/effects/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +29,7 @@ import { metaReducersX } from './webApp/formation/ngrx-store/reducers/meta-reduc
       }
     ),
     EffectsModule.forRoot([
-      // appEffects
+      appEffects
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     ServiceWorkerModule.register('ngsw-worker.js', {

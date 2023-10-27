@@ -1,47 +1,54 @@
 <div class="alert alert-light">
+  <h4>
+    Un <strong>store</strong> représente l'état global de l’application en
+    lecture seule <br />Une source unique de vérité ne pouvant pas être modifiée
+    <br />Un objet javascript comme une banque de données, une base de données
+    mais dans le front !
+  </h4>
 
-    <h4>Un <strong>store</strong> représente l'état global de l’application en lecture seule
-        <br>Une source unique de vérité ne pouvant pas être modifiée
-        <br>Un objet javascript comme une banque de données, une base de données mais dans le front !
-    </h4>
+  <hr />
+  <h4>Commandes d'intégration :</h4>
+  <p>ng add @ngrx/store</p>
+  <p>ng add @ngrx/effects</p>
+  <p>devTools : ng add @ngrx/store-devtools</p>
+  <hr />
 
-    <hr>
-    <h4>Commandes d'intégration :</h4>
-    <p>ng add @ngrx/store</p>
-    <p>ng add @ngrx/effects</p>
-    <p>devTools : ng add @ngrx/store-devtools</p>
-    <hr>
+  <p>
+    Extension Chrome - firefox :
+    <a
+      href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=fr"
+      >https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=fr</a
+    >
+  </p>
 
-    <p>Extension Chrome - firefox : <a
-            href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=fr">https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=fr</a>
-    </p>
+  <button class="btn btn-primary" (click)="changeName()">
+    Modifier le nom
+  </button>
+  <!-- <p>{{actor.name}} {{actor.isJedi}}</p> -->
+  <p>Nom de l'acteur : {{ (actor$ | async).name }}</p>
+  <p>Statut du Jedi : {{ (actor$ | async).isJedi }}</p>
+  <p></p>
 
-    <button class="btn btn-primary" (click)="changeName()">Modifier le nom</button>
-    <!-- <p>{{actor.name}} {{actor.isJedi}}</p> -->
-    <p>Nom de l'acteur : {{ (actor$ | async).name }}</p>
-    <p>Statut du Jedi : {{ (actor$ | async).isJedi }}</p>
-    <p></p>
+  <div class="alert alert-danger">
+    <app-comp-store2></app-comp-store2>
+  </div>
 
-    <div class="alert alert-danger">
-      <app-comp-store2></app-comp-store2>
-    </div>
+  <button class="btn btn-warning" (click)="loadFilms()">
+    Charger les films
+  </button>
+  <p></p>
 
-    <button class="btn btn-warning">Charger les films</button>
-    <p></p>
-    <!-- <div *ngIf="(datasLoaded$ | async) === false">
-        <div class="spinner-border text-warning" role="status">
-        </div>
-    </div>
+  <div *ngIf="(datasLoaded$ | async) === false">
+    <div class="spinner-border text-warning" role="status"></div>
+  </div>
 
-    <div>
-        <p> catchError : {{error$ | async}}</p>
-    </div>
+  <div>
+    <p>catchError : {{ error$ | async }}</p>
+  </div>
 
-    <ul class="list-group" *ngFor="let film of (films$ | async)">
-        <li class="list-group-item" style="color:#000">
-            {{film.title}}
-        </li>
-    </ul> -->
-    <p></p>
-
+  <ul class="list-group" *ngFor="let film of films$ | async">
+    <li class="list-group-item" style="color: #000">
+      {{ film.title }}
+    </li>
+  </ul>
 </div>

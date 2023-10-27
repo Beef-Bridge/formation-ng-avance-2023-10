@@ -1,5 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { changenameAction, initAction } from '../actions/actions';
+import {
+  changenameAction,
+  initAction,
+  loadFilmsAction,
+  loadFilmsNotOkAction,
+  loadFilmsOkAction,
+} from '../actions/actions';
 import { Films } from 'src/app/sharedModels/models/class/films';
 
 // const INITIAL_STATE = {}; // à l'init => en prod
@@ -54,6 +60,27 @@ export const rootReducer = createReducer(
         ...state.actor,
         name: props.paramNameActionCOMP,
       },
+    };
+  }),
+  on(loadFilmsAction, (state) => {
+    return {
+      ...state,
+      loaded: false,
+    };
+  }),
+  on(loadFilmsOkAction, (state, props) => {
+    return {
+      ...state,
+      films: props.films,
+      loaded: true,
+    };
+  }),
+  on(loadFilmsNotOkAction, (state, props) => {
+    return {
+      ...state,
+      loaded: true,
+      KO: true,
+      erreurDesc: props.err,
     };
   })
 );

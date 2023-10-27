@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { changenameAction, initAction } from '../../actions/actions';
+import {
+  changenameAction,
+  initAction,
+  loadFilmsAction,
+} from '../../actions/actions';
 import { Observable } from 'rxjs';
-import { selectorGetActor } from '../../selectors/selectors';
+import {
+  selectorGetActor,
+  selectorGetFilms,
+  selectorGetKO,
+  selectorGetLoaded,
+} from '../../selectors/selectors';
+import { Films } from 'src/app/sharedModels/models/class/films';
 
 @Component({
   selector: 'app-comp-store1',
@@ -12,6 +22,9 @@ import { selectorGetActor } from '../../selectors/selectors';
 export class CompStore1Component {
   // public actor:any;
   public actor$ = {} as Observable<any>;
+  public films$: Observable<Films[]> = {} as Observable<Films[]>;
+  public datasLoaded$: Observable<boolean> = {} as Observable<boolean>;
+  public error$: Observable<boolean> = {} as Observable<boolean>;
 
   constructor(private _store: Store) {}
 
@@ -36,6 +49,9 @@ export class CompStore1Component {
 
     // avec selector
     this.actor$ = this._store.pipe(select(selectorGetActor));
+    this.films$ = this._store.pipe(select(selectorGetFilms));
+    this.datasLoaded$ = this._store.pipe(select(selectorGetLoaded));
+    this.error$ = this._store.pipe(select(selectorGetKO));
   }
   // -------------------------------
   public changeName = () => {
@@ -46,5 +62,10 @@ export class CompStore1Component {
         )} dans la lignée des Jedi...`,
       })
     );
+  };
+
+  // ----------
+  public loadFilms = () => {
+    this._store.dispatch(loadFilmsAction());
   };
 }
