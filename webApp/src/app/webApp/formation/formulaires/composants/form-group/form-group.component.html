@@ -1,125 +1,120 @@
-<div class="alert alert-success">
+<div class="alert alert-light">
+  <h3>Les Forms groups</h3>
+  <form [formGroup]="monForm" (submit)="onSubmit()">
 
-    <h2>Les Forms groups</h2>
-    <form [formGroup]="monForm">
-        <!-- <form [formGroup]="monForm" (submit)="onSubmit()"> -->
+      <h5> - Informations :</h5>
 
-        <mat-icon id="icone-prenom">face</mat-icon>&nbsp;
-        <mat-form-field>
-            <mat-label>Votre prénom :</mat-label>
-            <input type="text" matInput formControlName="prenom">
-        </mat-form-field>
-        <hr>
+      <mat-icon id="icone-prenom">face</mat-icon>&nbsp;
+      <mat-form-field>
+          <mat-label>Votre prénom :</mat-label>
+          <input type="text" matInput formControlName="prenom">
+      </mat-form-field>
+      <p class="text-danger"
+      *ngIf="!monForm.controls['prenom'].valid && monForm.controls['prenom'].touched">
+          *<em> le champ doit comporter 3 caractères minimum </em>*
+      </p>
 
-        <div class="alert alert-warning">
-            - Prénom (value) : {{monForm.controls['prenom'].value}}
-            <br> - Prénom (Touched) : {{monForm.controls['prenom'].touched}}
-            <br> - Prénom (Pristine) : {{monForm.controls['prenom'].pristine}}
-            <br> - Prénom (Dirty) : {{monForm.controls['prenom'].dirty}}
-            <br> - Prénom (Valid) : {{monForm.controls['prenom'].valid}}
-        </div>
-        <hr>
+      <p></p>
+      <mat-icon>emoji_people</mat-icon>&nbsp;
+      <mat-form-field>
+          <mat-label>Votre nom :</mat-label>
+          <input type="text" matInput formControlName="nom">
+      </mat-form-field>
+      <p class="text-danger"
+      *ngIf="!monForm.controls['nom'].valid && monForm.controls['nom'].touched ">
+          *<em> le champ est obligatoire </em>*
+      </p>
 
-        <p></p>
-        <mat-icon>emoji_people</mat-icon>&nbsp;
-        <mat-form-field>
-            <mat-label>Votre nom :</mat-label>
-            <input type="text" matInput formControlName="nom">
-        </mat-form-field>
-        <p></p>
+      <p></p>
+      <mat-icon>email</mat-icon>&nbsp;
+      <mat-form-field>
+          <mat-label>Votre email :</mat-label>
+          <input type="text" matInput formControlName="email">
+      </mat-form-field>
+      <p></p>
 
-        <p></p>
-        <mat-icon>email</mat-icon>&nbsp;
-        <mat-form-field>
-            <mat-label>Votre email :</mat-label>
-            <input type="text" matInput formControlName="email">
-        </mat-form-field>
-        <p></p>
+      <h5> - Adresse :</h5>
+      <div formGroupName="adresse" class="alert alert-primary">
+          <div>
+              <mat-icon>traffic</mat-icon>&nbsp;
+              <mat-form-field>
+                  <mat-label>Saisir votre rue :</mat-label>
+                  <input matInput type="text" formControlName="rue">
+              </mat-form-field>
+              <p></p>
+          </div>
 
-        <div formGroupName="adresse" class="alert alert-danger">
-            <div>
-                <mat-icon>traffic</mat-icon>&nbsp;
-                <mat-form-field>
-                    <mat-label>Saisir votre rue :</mat-label>
-                    <input matInput type="text" formControlName="rue">
-                </mat-form-field>
-                <p></p>
-            </div>
+          <div>
+              <mat-icon>traffic</mat-icon>&nbsp;
+              <mat-form-field>
+                  <mat-label>Saisir votre ville :</mat-label>
+                  <input matInput type="text" formControlName="ville">
+              </mat-form-field>
+              <p></p>
+          </div>
+          <p class="text-danger"
+          *ngIf="getAdresse.get('ville')?.hasError('required') && getAdresse.get('ville')?.touched">
+              *<em> le champ ville est obligatoire </em>*
+          </p>
 
-            <div>
-                <mat-icon>traffic</mat-icon>&nbsp;
-                <mat-form-field>
-                    <mat-label>Saisir votre ville :</mat-label>
-                    <input matInput type="text" formControlName="ville">
-                </mat-form-field>
-                <p></p>
-            </div>
+          <div>
+              <mat-icon>traffic</mat-icon>&nbsp;
+              <mat-form-field>
+                  <mat-label>Saisir votre cp :</mat-label>
+                  <input matInput type="text" formControlName="cp">
+              </mat-form-field>
+              <p></p>
+          </div>
+      </div>
 
-            <div>
-                <mat-icon>traffic</mat-icon>&nbsp;
-                <mat-form-field>
-                    <mat-label>Saisir votre cp :</mat-label>
-                    <input matInput type="text" formControlName="cp">
-                </mat-form-field>
-                <p></p>
-            </div>
-        </div>
+      <div [hidden]="!monForm.controls['adresse'].valid">
 
-<!--
-        <div formGroupName="tp" class="alert alert-danger">
+          <h5> - Bravo ! La partie adresse est correctement renseignée !</h5>
+          <img src="assets/images/angular.png" style="width:100px">
 
-            <p></p>
-            <mat-label>Votre choix</mat-label>
-            <mat-icon>question_mark</mat-icon>&nbsp;
-            <mat-checkbox name="name_choix1" formControlName="choix1"> Choix #1</mat-checkbox>
-            <mat-checkbox name="name_choix2" formControlName="choix2"> Choix #2</mat-checkbox>
-            <p></p>
+      </div>
 
-            <mat-icon>settings</mat-icon>&nbsp;
-            <mat-form-field>
-                <mat-label>Votre message :</mat-label>
-                <textarea matInput formControlName="message"></textarea>
-            </mat-form-field>
+      <!--
+      <div formGroupName="tp" class="alert alert-danger">
 
-            <p></p>
-            <mat-icon>calendar_today</mat-icon>&nbsp;
-            <mat-form-field appearance="fill">
-                <mat-label>Choisir une date</mat-label>
-                <input matInput [matDatepicker]="date" formControlName="dateDebut">
+          <p></p>
+          <mat-label>Votre choix</mat-label>
+          <mat-icon>question_mark</mat-icon>&nbsp;
+          <mat-checkbox name="name_choix1" formControlName="choix1"> Choix #1</mat-checkbox>
+          <mat-checkbox name="name_choix2" formControlName="choix2"> Choix #2</mat-checkbox>
+          <p></p>
 
-                <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
-                <mat-datepicker #date></mat-datepicker>
-            </mat-form-field>
-            <p></p>
-        </div>
--->
+          <mat-icon>settings</mat-icon>&nbsp;
+          <mat-form-field>
+              <mat-label>Votre message :</mat-label>
+              <textarea matInput formControlName="message"></textarea>
+          </mat-form-field>
 
-        <div [hidden]="!monForm.controls['adresse'].valid">
+          <p></p>
+          <mat-icon>calendar_today</mat-icon>&nbsp;
+          <mat-form-field appearance="fill">
+              <mat-label>Choisir une date</mat-label>
+              <input matInput [matDatepicker]="date" formControlName="dateDebut">
 
-            Allez à la suite ...
-            <p>Une autre partie du formulaire à compléter ...</p>
+              <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+              <mat-datepicker #date></mat-datepicker>
+          </mat-form-field>
+          <p></p>
+      </div>
+  -->
 
-            <p></p>
-            <button mat-raised-button color="primary" type="submit">
-                <mat-icon>login</mat-icon>&nbsp; submit ...
-            </button>
+      <p></p>
+      <!-- <button mat-raised-button color="primary" type="submit" [disabled]="!monForm.valid">
+      <mat-icon>login</mat-icon>&nbsp; submit ...
+  </button> -->
 
-        </div>
+      <button mat-raised-button color="primary" type="submit">
+          <mat-icon>login</mat-icon>&nbsp; submit ...
+      </button>
 
-<!--
-    <p></p>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!monForm.valid">
-        <mat-icon>login</mat-icon>&nbsp; submit ...
-    </button>
-
-    <p></p>
--->
-
-<p>{{monForm.value | json }}</p>
-
-
-
-    </form>
-    <div style="margin-top:200px"></div>
+      <p></p>
+      <p>{{monForm.value | json }}</p>
+  </form>
+  <div style="margin-top:200px"></div>
 
 </div>

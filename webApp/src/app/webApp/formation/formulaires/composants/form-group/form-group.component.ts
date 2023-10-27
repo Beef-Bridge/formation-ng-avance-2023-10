@@ -5,54 +5,76 @@ import { PostService } from 'src/app/sharedModels/services/post.service';
 @Component({
   selector: 'app-form-group',
   templateUrl: './form-group.component.html',
-  styleUrls: ['./form-group.component.scss']
+  styleUrls: ['./form-group.component.scss'],
 })
 export class FormGroupComponent {
-
   // props
   public monForm: FormGroup;
 
   // constructor
   constructor(private _post: PostService) {
-
     this.monForm = new FormGroup({
-      // déclaration de tous les controls de ce formulaire (formGroup)
-      prenom: new FormControl<string | null>(
-        //val par défaut
-        null,
-        // Validators
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(10)
-        ]),
-      nom: new FormControl<string | null>(null),
-      // email :
-      email: new FormControl<string | null>(
-        null,
-        [
-          // options
-          // Validators.email,
-          // ^:commence par
-          // $: finit par
-          // [a-z] : toutes les lettres en minuscule de a à z
-          // [a-zA-Z0-9] : toutes les lettres min et maj + les chiffres
-          // ? : on répéte 0 ou 1 fois
-          // + : 1 ou plusieurs fois
-          // * : 0 ou plusieurs fois
-          // {val min , val max } : pour répéter
-          Validators.pattern('^[a-z0-9._-]+@[a-z0-9.-]+\\.[a-z]{2,}$'),
-          Validators.required
-        ]
-      ),
-           // ******************************
+      // --------------------------------------
+      prenom: new FormControl<string | null>(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10),
+      ]),
+      nom: new FormControl<string | null>(null, [Validators.required]),
+      email: new FormControl<string | null>(null, [
+        // Validators.pattern('^[a-z0-9._-]+@[a-z0-9.-]+\\.[a-z]{2,}$'),
+        // Validators.required
+      ]),
+      // --------------------------------------
       adresse: new FormGroup({
         rue: new FormControl<string | null>(null),
         ville: new FormControl<string | null>(null, Validators.required),
         cp: new FormControl<string | null>(null),
       }),
-    })
-    
+    });
   }
 
+  // Méthodes
+  get getAdresse() {
+    return this.monForm.get('adresse') as FormGroup;
+  }
+
+  public onSubmit = () => {
+    this.monForm.markAllAsTouched();
+    // c'est comme si on avait touché les champs
+    if (this.monForm.valid) {
+      console.log('ok');
+    }
+  };
+
+  // cycle de vie
+  ngAfterViewInit() {
+    console.warn('ngAfterViewInit');
+    this.monForm.controls['prenom'].valueChanges.subscribe(
+      // observer Next
+      (fieldPrenom: any) => {
+        if (fieldPrenom.length != undefined && fieldPrenom.length > 5) {
+          // hors contexte ==> pour montrer qq méthodes et le potentiel des reactive forms en TS
+          //this.monForm.controls['prenom'].reset();
+          // this.monForm.controls['prenom'].patchValue('Trop Long');
+        }
+      }
+    );
+  }
+
+  ngAfterViewChecked() {
+    console.warn('ngAfterViewChecked');
+
+    const eltIcone = <HTMLElement>document.querySelector('#icone-prenom');
+
+    this.monForm.controls['prenom'].valueChanges.subscribe(
+      (fieldPrenom: any) => {
+        if (fieldPrenom.length < 3 || fieldPrenom.length > 10) {
+          eltIcone.style.color = 'red';
+        } else {
+          eltIcone.style.color = 'green';
+        }
+      }
+    );
+  }
 }
