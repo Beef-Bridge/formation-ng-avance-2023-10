@@ -9,22 +9,23 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-// import { rootReducer } from './webApp/formation/ngrx-store/reducers/root-reducers';
-// import { metaReducersX } from './webApp/formation/ngrx-store/reducers/meta-reducers';
+import { rootReducer } from './webApp/formation/ngrx-store/reducers/root-reducers';
+import { metaReducersX } from './webApp/formation/ngrx-store/reducers/meta-reducers';
 // import { appEffects } from './webApp/formation/ngrx-store/effects/effects';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, AccueilModule, BrowserAnimationsModule,
-    // NGRx - Store 
+    // NGRx - Store
     StoreModule.forRoot(
       {
         // rootReducer: formate le store (modifie)
         // nom à notre state (root): reducer principal
-        // root: rootReducer | STATE_NAME: rootReducer
+        root: rootReducer
+        // STATE_NAME: rootReducer
       },
-      { // metaReducer        
-        // metaReducers: metaReducersX
+      { // metaReducer
+        metaReducers: metaReducersX
       }
     ),
     EffectsModule.forRoot([
