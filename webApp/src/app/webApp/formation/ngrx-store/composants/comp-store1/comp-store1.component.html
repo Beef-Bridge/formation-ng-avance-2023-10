@@ -22,6 +22,10 @@
     <p>Statut du Jedi : {{ (actor$ | async).isJedi }}</p>
     <p></p>
 
+    <div class="alert alert-danger">
+      <app-comp-store2></app-comp-store2>
+    </div>
+
     <button class="btn btn-warning">Charger les films</button>
     <p></p>
     <!-- <div *ngIf="(datasLoaded$ | async) === false">
@@ -39,9 +43,5 @@
         </li>
     </ul> -->
     <p></p>
-
-    <hr>
-
-    <app-comp-store2></app-comp-store2>
 
 </div>
