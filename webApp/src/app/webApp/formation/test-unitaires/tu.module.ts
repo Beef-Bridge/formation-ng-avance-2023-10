@@ -10,6 +10,7 @@ import { AvisComponent } from './composants/detail-avis/avis.component';
 @NgModule({
   declarations: [
     TuComponent, ListeDesAvisComponent, AvisComponent, Exo1Component
+    // nos pipes - directives
   ],
   imports: [ CommonModule ]
 })
