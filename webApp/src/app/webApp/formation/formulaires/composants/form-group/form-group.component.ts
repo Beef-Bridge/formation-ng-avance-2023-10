@@ -43,7 +43,10 @@ export class FormGroupComponent {
     this.monForm.markAllAsTouched();
     // c'est comme si on avait touché les champs
     if (this.monForm.valid) {
-      console.log('ok');
+      console.log('Groupe principal : ', this.monForm.value);
+      console.log('Sous Groupe : ', this.monForm.controls['adresse'].value);
+      // console.log('Sous Groupe : ', this.monForm.controls['tp'].value);
+      this._post.postForm(this.monForm);
     }
   };
 
