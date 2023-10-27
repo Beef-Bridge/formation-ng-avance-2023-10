@@ -17,7 +17,10 @@
     </p>
 
     <button class="btn btn-primary" (click)="changeName()">Modifier le nom</button>
-    <p>{{actor.name}} {{actor.isJedi}}</p>
+    <!-- <p>{{actor.name}} {{actor.isJedi}}</p> -->
+    <p>Nom de l'acteur : {{ (actor$ | async).name }}</p>
+    <p>Statut du Jedi : {{ (actor$ | async).isJedi }}</p>
+    <p></p>
 
     <button class="btn btn-warning">Charger les films</button>
     <p></p>
