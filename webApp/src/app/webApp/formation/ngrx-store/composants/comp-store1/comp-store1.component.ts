@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { changenameAction, initAction } from '../../actions/actions';
 import { Observable } from 'rxjs';
+import { selectorGetActor } from '../../selectors/selectors';
 
 @Component({
   selector: 'app-comp-store1',
@@ -27,9 +28,14 @@ export class CompStore1Component {
     //   }
     // )
 
-    this.actor$ = this._store.select((state: any) => {
-      return state.root.actor;
-    });
+    // -------------------------------
+    // selector
+    // this.actor$ = this._store.select((state: any) => {
+    //   return state.root.actor;
+    // });
+
+    // avec selector
+    this.actor$ = this._store.pipe(select(selectorGetActor));
   }
   // -------------------------------
   public changeName = () => {
