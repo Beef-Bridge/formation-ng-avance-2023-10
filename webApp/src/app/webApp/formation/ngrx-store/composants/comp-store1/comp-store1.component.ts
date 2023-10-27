@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { initAction } from '../../actions/actions';
+import { changenameAction, initAction } from '../../actions/actions';
 
 @Component({
   selector: 'app-comp-store1',
@@ -13,6 +13,14 @@ export class CompStore1Component {
 
   ngOnInit() {
     this._store.dispatch(initAction())
+  }
+
+  public changeName = () => {
+    this._store.dispatch(
+      changenameAction({
+        paramNameActionCOMP:`Luke Skylwalker Jedi - Maître ${Math.round(Math.random() * 10)} dans la lignée des Jedi...`
+      })
+    );
   }
 
 }
